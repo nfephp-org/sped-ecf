@@ -8,105 +8,91 @@ use \stdClass;
 
 /**
  * Elemento 0000 do Bloco 0 OBRIGATÓRIO [1:1]
- * REGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICAÇÃO DO EMPRESÁRIO OU DA SOCIEDADE EMPRESÁRIA
+ * REGISTRO 0030: DADOS CADASTRAIS
  */
-class Z0000 extends Element implements ElementInterface
+class Z0030 extends Element implements ElementInterface
 {
-    const REG = '0000';
-    const LEVEL = 0;
-    const PARENT = '';
+    const REG = '0030';
+    const LEVEL = 2;
+    const PARENT = '0000';
 
     protected $parameters = [
-        'NOME_ESC' => [
-            'type'     => 'string',
-            'regex'    => '^(LECF)$',
-            'required' => true,
-            'info'     => 'Texto fixo contendo LECF.',
-            'format'   => ''
-        ],
-        'COD_VER'     => [
-            'type'     => 'string',
-            'regex'    => '^(0006)$',
-            'required' => true,
-            'info'     => 'codigo da versao do layout.',
-            'format'   => ''
-        ],
-        'CNPJ'      => [
-            'type'     => 'string',
-            'regex'    => '^[0-9]{14}$',
-            'required' => true,
-            'info'     => 'Número de inscrição da entidade no CNPJ.',
-            'format'   => ''
-        ],
-        'NOME'      => [
-            'type'     => 'string',
-            'regex'    => '^.{2,100}$',
-            'required' => true,
-            'info'     => 'Nome empresarial da entidade.',
-            'format'   => ''
-        ],
-        'IND_SIT_INI_PER' => [
+        'cod_nat' => [
             'type'     => 'numeric',
-            'regex'    => '^(0|1|2|3|4)$',
+            'regex'    => '^[0-9]{4}$',
             'required' => true,
-            'info'     => 'Indicador de situação no início do período.',
+            'info'     => 'Codigo da Natureza Juridica.',
             'format'   => ''
         ],
-        'SIT_ESPECIAL' => [
+        'cnae_fiscal' => [
             'type'     => 'numeric',
-            'regex'    => '^(0|1|2|3|4|5|6|7|8|9)$',
+            'regex'    => '^[0-9]{7}$',
+            'required' => true,
+            'info'     => 'Codigo da Natureza Juridica.',
+            'format'   => ''
+        ],
+        'endereco'      => [
+            'type'     => 'string',
+            'regex'    => '^.{2,150}$',
+            'required' => true,
+            'info'     => 'Endereco da Pessoa Juridica.',
+            'format'   => ''
+        ],
+        'num'      => [
+            'type'     => 'string',
+            'regex'    => '^.{1,6}$',
+            'required' => true,
+            'info'     => 'Numero.',
+            'format'   => ''
+        ],
+        'compl'      => [
+            'type'     => 'string',
+            'regex'    => '^.{0,50}$',
             'required' => false,
-            'info'     => 'Código do Plano de Contas Referencial que será utilizado '
-                . 'para o mapeamento de todas as contas analíticas',
+            'info'     => 'Complemento do Endereco da Pessoa Juridica.',
             'format'   => ''
         ],
-        'PAT_REMAN_CIS'    => [
-            'type'     => 'numeric',
-            'regex'    => '^\d+(\.\d*)?|\.\d+$',
-            'required' => true,
-            'info'     => 'Patrimonio Resmanescente em caso de cisao.',
-            'format'   => '8v4'
-        ],
-        'DT_INI'     => [
+        'bairro'      => [
             'type'     => 'string',
-            'regex'    => '^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))(0[1-9]|1[0-2])([12]\d{3})$',
-            'required' => true,
-            'info'     => 'Data inicio do periodo.',
-            'format'   => ''
-        ],
-        'DT_FIN'     => [
-            'type'     => 'string',
-            'regex'    => '^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))(0[1-9]|1[0-2])([12]\d{3})$',
-            'required' => true,
-            'info'     => 'Data final das informações contidas no arquivo.',
-            'format'   => ''
-        ],
-        'RETIFICADORA' => [
-            'type'     => 'string',
-            'regex'    => '^(S|N|F)$',
-            'required' => true,
-            'info'     => 'Escritora Retificadora.',
-            'format'   => ''
-        ],
-        'NUM_REC' => [
-            'type'     => 'string',
-            'regex'    => '^.{0,41}$',
+            'regex'    => '^.{2,50}$',
             'required' => false,
-            'info'     => 'Hash do numero do recibo da escrituração anterior.',
+            'info'     => 'Bairro/Distrito.',
             'format'   => ''
         ],
-        'TIP_ECF' => [
-            'type'     => 'numeric',
-            'regex'    => '^(0|1|2)$',
-            'required' => true,
-            'info'     => 'Indicador de tipo de ecf',
-            'format'   => ''
-        ],
-        'COD_SCP'      => [
+        'uf'        => [
             'type'     => 'string',
-            'regex'    => '^[0-9]{14}$',
+            'regex'    => '^[A-Z]{2}$',
+            'required' => true,
+            'info'     => 'Sigla da unidade da federação da entidade.',
+            'format'   => ''
+        ],
+        'cod_mun'    => [
+            'type'     => 'numeric',
+            'regex'    => '^[0-9]{7}$',
+            'required' => true,
+            'info'     => 'Código  do  município  do  domicílio  fiscal  da  '
+                . 'entidade, conforme a tabela IBGE',
+            'format'   => ''
+        ],
+        'cep' => [
+            'type' => 'numeric',
+            'regex' => '^(\d{8})$',
+            'required' => true,
+            'info' => 'Código de Endereçamento Postal.',
+            'format' => ''
+        ],
+        'num_tel' => [
+            'type'     => 'string',
+            'regex'    => '^[0-9]{6,15}$',
             'required' => false,
-            'info'     => 'Número de inscrição da entidade no CNPJ.',
+            'info'     => 'DDD + Numero do Telefone.',
+            'format'   => ''
+        ],
+        'email' => [
+            'type'     => 'string',
+            'regex'    => '^.{2,250}$',
+            'required' => false,
+            'info'     => 'Email do signatário.',
             'format'   => ''
         ]
     ];
