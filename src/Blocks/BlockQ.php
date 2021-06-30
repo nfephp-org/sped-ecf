@@ -21,7 +21,7 @@ final class BlockQ extends Block implements BlockInterface
 
     public $elements = [
         'q001' => ['class' => Elements\Q001::class, 'level' => 1, 'type' => 'single'],
-        'q100' => ['class' => Elements\Q010::class, 'level' => 2, 'type' => 'single'],
+        'q100' => ['class' => Elements\Q100::class, 'level' => 2, 'type' => 'single']
     ];
 
     public function __construct()
