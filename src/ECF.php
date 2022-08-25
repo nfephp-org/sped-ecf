@@ -16,7 +16,9 @@ class ECF
 
     protected $possibles = [
         'block0' => ['class' => Blocks\Block0::class, 'order' => 1], // Abertura, Identificação e Referências
-        'blockq' => ['class' => Blocks\BlockQ::class, 'order' => 2], // Livro Caixa
+        'blockp' => ['class' => Blocks\BlockP::class, 'order' => 2], // Lucro Presumido
+        'blockq' => ['class' => Blocks\BlockQ::class, 'order' => 3], // Livro Caixa
+        'blocky' => ['class' => Blocks\BlockY::class, 'order' => 4], // Informacoes Gerais
     ];
 
     protected $qtd_lin = 0;
