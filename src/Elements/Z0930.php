@@ -47,14 +47,14 @@ class Z0930 extends Element implements ElementInterface
         ],
         'email' => [
             'type'     => 'string',
-            'regex'    => '^[A-Za-z0-9]{115}$',
+            'regex'    => '^(.*){8,60}$', // '^[A-Za-z0-9]{115}$',
             'required' => false,
             'info'     => 'Email do signatário.',
             'format'   => ''
         ],
         'fone' => [
             'type'     => 'string',
-            'regex'    => '^[0-9]{15}$',
+            'regex'    => '^[0-9]{14}$',
             'required' => false,
             'info'     => 'DDD + Numero do Telefone.',
             'format'   => ''

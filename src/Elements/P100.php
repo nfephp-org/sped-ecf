@@ -26,7 +26,7 @@ class P100 extends Element implements ElementInterface
         ],
         'descricao' => [
             'type'     => 'string',
-            'regex'    => '^.{200}$',
+            'regex'    => '^.{1,200}$',
             'required' => false,
             'info'     => 'Descricao da Conta Referencial.',
             'format'   => ''
@@ -40,7 +40,7 @@ class P100 extends Element implements ElementInterface
         ],
         'nivel' => [
             'type'     => 'numeric',
-            'regex'    => '^[0-9]{3}$',
+            'regex'    => '^[0-9]{1,3}$',
             'required' => false,
             'info'     => 'Nivel da conta.',
             'format'   => ''
@@ -54,7 +54,7 @@ class P100 extends Element implements ElementInterface
         ],
         'cod_cta_sup'      => [
             'type'     => 'string',
-            'regex'    => '^.{200}$',
+            'regex'    => '^.{0,100}$',
             'required' => false,
             'info'     => 'Codigo da Conta Sintetica de Nivel Imediatamente Superior.',
             'format'   => ''

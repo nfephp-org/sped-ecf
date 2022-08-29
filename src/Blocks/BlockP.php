@@ -33,7 +33,7 @@ final class BlockP extends Block implements BlockInterface
         'p100' => ['class' => Elements\P100::class, 'level' => 3, 'type' => 'multiple'],
         'p130' => ['class' => Elements\P130::class, 'level' => 3, 'type' => 'multiple'],
         'p150' => ['class' => Elements\P150::class, 'level' => 3, 'type' => 'multiple'],
-        'P200' => ['class' => Elements\P200::class, 'level' => 3, 'type' => 'multiple'],
+        'p200' => ['class' => Elements\P200::class, 'level' => 3, 'type' => 'multiple'],
         'p230' => ['class' => Elements\P230::class, 'level' => 3, 'type' => 'multiple'],
         'p300' => ['class' => Elements\P300::class, 'level' => 3, 'type' => 'multiple'],
         'p400' => ['class' => Elements\P400::class, 'level' => 3, 'type' => 'multiple'],

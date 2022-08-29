@@ -26,7 +26,7 @@ class P200 extends Element implements ElementInterface
         ],
         'descricao' => [
             'type'     => 'string',
-            'regex'    => '^.{200}$',
+            'regex'    => '^.{0,250}$',
             'required' => false,
             'info'     => 'Descricao, conforme tabela dinamica do Sped.',
             'format'   => ''

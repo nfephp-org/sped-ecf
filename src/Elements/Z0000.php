@@ -26,7 +26,7 @@ class Z0000 extends Element implements ElementInterface
         ],
         'cod_ver'     => [
             'type'     => 'string',
-            'regex'    => '^(0007)$',
+            'regex'    => '^[0-9]{4}$', // '^(0007)$',
             'required' => true,
             'info'     => 'codigo da versao do layout.',
             'format'   => ''
