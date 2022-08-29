@@ -26,7 +26,7 @@ class P150 extends Element implements ElementInterface
         ],
         'descricao' => [
             'type'     => 'string',
-            'regex'    => '^.{200}$',
+            'regex'    => '^.{1,200}$',
             'required' => false,
             'info'     => 'Descricao da Conta Referencial.',
             'format'   => ''
@@ -40,21 +40,21 @@ class P150 extends Element implements ElementInterface
         ],
         'nivel' => [
             'type'     => 'numeric',
-            'regex'    => '^[0-9]{3}$',
+            'regex'    => '^[0-9]{1,3}$',
             'required' => false,
             'info'     => 'Nivel da conta.',
             'format'   => ''
         ],
         'cod_nat'      => [
             'type'     => 'string',
-            'regex'    => '^(04)$',
+            'regex'    => '^.{2}$',
             'required' => false,
             'info'     => 'Codigo de natureza.',
             'format'   => ''
         ],
         'cod_cta_sup'      => [
             'type'     => 'string',
-            'regex'    => '^.{200}$',
+            'regex'    => '^.{0,100}$',
             'required' => false,
             'info'     => 'Codigo da Conta Sintetica de Nivel Imediatamente Superior.',
             'format'   => ''
